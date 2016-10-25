@@ -24,7 +24,7 @@ namespace ShiiperCarTest
         [TestMethod]
         public void 第一集買了一本而且第二集也買了一本期望為190()
         {
-            //期望第二本有0.95折扣，但不同版本
+            //期望二本有0.95折扣，但不同版本
             List<Book> books = new List<Book>() {
                 new Book() {  Name="哈利波特",Version="1", Quantity=1 },
                 new Book() {  Name="哈利波特",Version="2", Quantity=1 }
@@ -39,7 +39,7 @@ namespace ShiiperCarTest
         [TestMethod]
         public void 一二三集各買了一本期望為270()
         {
-            //期望第三本有0.9折扣，但不同版本
+            //期望三本有0.9折扣，但不同版本
             List<Book> books = new List<Book>() {
                 new Book() {  Name="哈利波特",Version="1", Quantity=1 },
                 new Book() {  Name="哈利波特",Version="2", Quantity=1 },
@@ -56,7 +56,7 @@ namespace ShiiperCarTest
         [TestMethod]
         public void 一二三四集各買了一本期望為320()
         {
-            //期望第二本有0.8折扣，但不同版本
+            //期望四本有0.8折扣，但不同版本
             List<Book> books = new List<Book>() {
                 new Book() {  Name="哈利波特",Version="1", Quantity=1 },
                 new Book() {  Name="哈利波特",Version="2", Quantity=1 },

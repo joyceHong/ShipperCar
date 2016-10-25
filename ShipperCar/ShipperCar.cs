@@ -16,7 +16,8 @@ namespace ShipperCar
                 Dictionary<int, double> discount = new Dictionary<int, double>();
                 discount[0] = 1;
                 discount[1] = 0.95; //第二本 打5%
-                discount[2] = 0.90; //第二本 打5%
+                discount[2] = 0.90; //第三本 打10%
+                discount[3] =0.8; //第四本 打20%
                 return discount;
             }
             catch (Exception ex)
