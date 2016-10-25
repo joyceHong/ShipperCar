@@ -100,11 +100,12 @@ namespace ShiiperCarTest
                 new Book() {  Name="哈利波特",Version="2", Quantity=1 },
                 new Book() {  Name="哈利波特",Version="3", Quantity=2 },
             };
-
+            
             OrderShiiperCar shipperCarOb = new OrderShiiperCar();
             var expected = 370;
             var actual = shipperCarOb.TotalValue(books);
             Assert.AreEqual(expected, actual);
         }
+     
     }
 }

@@ -30,25 +30,16 @@ namespace ShipperCar
         public double TotalValue(List<Book>books) {
             try
             {
-                Book currentBook = null;
-                Book preBook = null;
-                int currentIndex = 0;
-                int discountPercent = 0;
+                double totalSum = 0;
                 Dictionary<int, double> discount = SettingDiscount();
-                foreach (Book book in books.OrderBy(x => x.Version))
-                {
-                    currentBook = book;
-                    if (currentIndex != 0)
-                    {
-                        preBook = books[currentIndex - 1];
-                        if (preBook.Version != currentBook.Version)
-                        {
-                            discountPercent += 1;
-                        }
-                    }
-                    currentIndex++;
+                int maxQuantity = books.Max(x => x.Quantity);
+                int versionCounts = 0;
+                while (maxQuantity > 0) {
+                    versionCounts = books.Where(q => q.Quantity >= maxQuantity).GroupBy(g => g.Version).Count();
+                    totalSum += versionCounts * singlePrice * discount[versionCounts - 1];//取得折扣
+                    maxQuantity--;
                 }
-                return books.Sum(x=>x.Quantity)*singlePrice* discount[discountPercent];
+                return totalSum;
             }
             catch (Exception ex)
             {
