@@ -8,12 +8,44 @@ namespace ShipperCar
 {
     public class OrderShiiperCar
     {
-        
-        public int TotalValue(List<Book>books) {
+        private double singlePrice = 100; //單本價
+
+        private Dictionary<int, double> SettingDiscount() {
             try
             {
-
-                return books.Sum(x => x.Quantity) * 100;
+                Dictionary<int, double> discount = new Dictionary<int, double>();
+                discount[0] = 1;
+                discount[1] = 0.95; //第二本 打5%
+                return discount;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        
+        public double TotalValue(List<Book>books) {
+            try
+            {
+                Book currentBook = null;
+                Book preBook = null;
+                int currentIndex = 0;
+                int discountPercent = 0;
+                Dictionary<int, double> discount = SettingDiscount();
+                foreach (Book book in books.OrderBy(x => x.Version))
+                {
+                    currentBook = book;
+                    if (currentIndex != 0)
+                    {
+                        preBook = books[currentIndex - 1];
+                        if (preBook.Version != currentBook.Version)
+                        {
+                            discountPercent += 1;
+                        }
+                    }
+                    currentIndex++;
+                }
+                return books.Sum(x=>x.Quantity)*singlePrice* discount[discountPercent];
             }
             catch (Exception ex)
             {
