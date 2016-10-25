@@ -18,6 +18,7 @@ namespace ShipperCar
                 discount[1] = 0.95; //第二本 打5%
                 discount[2] = 0.90; //第三本 打10%
                 discount[3] =0.8; //第四本 打20%
+                discount[4] = 0.75; //第四本 打25%
                 return discount;
             }
             catch (Exception ex)
