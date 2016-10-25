@@ -12,8 +12,8 @@ namespace ShipperCar
         public int TotalValue(List<Book>books) {
             try
             {
-                //還不知道計算公式
-                return 0;
+
+                return books.Sum(x => x.Quantity) * 100;
             }
             catch (Exception ex)
             {
