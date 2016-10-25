@@ -106,6 +106,21 @@ namespace ShiiperCarTest
             var actual = shipperCarOb.TotalValue(books);
             Assert.AreEqual(expected, actual);
         }
-     
+
+        [TestMethod]
+        public void 第一集買了一本而且第二三集各買了兩本期望為460()
+        {
+            List<Book> books = new List<Book>() {
+                new Book() {  Name="哈波利特",Version="1", Quantity=1 },
+                new Book() {  Name="哈利波特",Version="2", Quantity=2 },
+                new Book() {  Name="哈利波特",Version="3", Quantity=2 },
+            };
+
+            OrderShiiperCar shipperCarOb = new OrderShiiperCar();
+            var expected = 460;
+            var actual = shipperCarOb.TotalValue(books);
+            Assert.AreEqual(expected, actual);
+        }
+
     }
 }
